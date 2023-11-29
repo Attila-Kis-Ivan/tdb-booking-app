@@ -1,7 +1,14 @@
 import { StyledSidebar } from "./Sidebar-styles";
+import Logo from "./Logo";
+import MainNav from "./MainNav";
 
 const Sidebar = () => {
-  return <StyledSidebar>SIDEBAR</StyledSidebar>;
+  return (
+    <StyledSidebar>
+      <Logo />
+      <MainNav />
+    </StyledSidebar>
+  );
 };
 
 export default Sidebar;
