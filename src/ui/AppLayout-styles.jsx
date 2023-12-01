@@ -11,3 +11,11 @@ export const StyledAppLayout = styled.div`
   grid-template-rows: auto 1fr;
   height: 100vh;
 `;
+
+export const Container = styled.div`
+  max-width: 120rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
