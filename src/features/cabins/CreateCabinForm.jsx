@@ -21,27 +21,6 @@ const CreateCabinForm = ({ cabinToEdit = {} }) => {
   const { createCabin, isCreating } = useCreateCabin();
   const { editCabin, isEditing } = useEditCabin();
 
-  // const queryClient = useQueryClient();
-  // const { mutate: createCabin, isLoading: isCreating } = useMutation({
-  //   mutationFn: createEditCabin,
-  //   onSuccess: () => {
-  //     toast.success("New cabin created");
-  //     queryClient.invalidateQueries({ queryKey: ["cabins"] });
-  //     reset();
-  //   },
-  //   onError: (err) => toast.error(err),
-  // });
-
-  // const { mutate: editCabin, isLoading: isEditing } = useMutation({
-  //   mutationFn: ({ newCabinData, id }) => createEditCabin(newCabinData, id),
-  //   onSuccess: () => {
-  //     toast.success("Cabin successfullu edited");
-  //     queryClient.invalidateQueries({ queryKey: ["cabins"] });
-  //     reset();
-  //   },
-  //   onError: (err) => toast.error(err),
-  // });
-
   const isWorking = isCreating || isEditing;
 
   const onSubmit = (data) => {
