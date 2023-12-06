@@ -20,7 +20,6 @@ export const updateSetting = async (newSetting) => {
     .single();
 
   if (error) {
-    console.error(error);
     throw new Error("Settings could not be updated");
   }
   return data;
