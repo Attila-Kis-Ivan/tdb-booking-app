@@ -54,7 +54,7 @@ const CreateCabinForm = ({ cabinToEdit = {}, onCloseModal }) => {
   return (
     <Form
       onSubmit={handleSubmit(onSubmit, onError)}
-      type={onCloseModal ? "modal" : "reular"}
+      type={onCloseModal ? "modal" : "regular"}
     >
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
