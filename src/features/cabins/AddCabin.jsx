@@ -1,6 +1,5 @@
 import Button from "../../ui/Button-Styles";
 import CreateCabinForm from "./CreateCabinForm";
-
 import Modal from "../../ui/Modal";
 
 const AddCabin = () => {
