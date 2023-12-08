@@ -1,4 +1,4 @@
-import { TableRow, Img, Cabin, Price, Discount } from "./CabinRow-Styles";
+import { Img, Cabin, Price, Discount } from "./CabinRow-Styles";
 import CreateCabinForm from "./CreateCabinForm";
 import { HiSquare2Stack, HiPencil, HiTrash } from "react-icons/hi2";
 
@@ -8,7 +8,7 @@ import { useDeleteCabin } from "./useDeleteCabin";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-// import ConfirmDelete from "../../ui/ConfirmDelete";
+import Table from "../../ui/Table";
 
 const CabinRow = ({ cabin }) => {
   const { isDeleting, deleteCabin } = useDeleteCabin();
@@ -36,7 +36,7 @@ const CabinRow = ({ cabin }) => {
   };
 
   return (
-    <TableRow role="row">
+    <Table.Row>
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
@@ -74,7 +74,7 @@ const CabinRow = ({ cabin }) => {
           </Modal.Window>
         </Modal>
       </div>
-    </TableRow>
+    </Table.Row>
   );
 };
 
