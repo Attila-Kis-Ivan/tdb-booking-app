@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { isFuture, isPast, isToday } from "date-fns";
 import supabase from "../services/supabase";
-import Button from "../ui/Button";
+import Button from "../ui/Button-Styles";
 import { subtractDates } from "../utils/helpers";
 
 import { bookings } from "./data-bookings";
@@ -15,10 +15,10 @@ import { guests } from "./data-guests";
 //   breakfastPrice: 15,
 // };
 
-async function deleteGuests() {
+const deleteGuests = async () => {
   const { error } = await supabase.from("guests").delete().gt("id", 0);
   if (error) console.log(error.message);
-}
+};
 
 async function deleteCabins() {
   const { error } = await supabase.from("cabins").delete().gt("id", 0);
@@ -100,7 +100,7 @@ async function createBookings() {
   if (error) console.log(error.message);
 }
 
-function Uploader() {
+const Uploader = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   async function uploadAll() {
@@ -118,12 +118,12 @@ function Uploader() {
     setIsLoading(false);
   }
 
-  async function uploadBookings() {
+  const uploadBookings = async () => {
     setIsLoading(true);
     await deleteBookings();
     await createBookings();
     setIsLoading(false);
-  }
+  };
 
   return (
     <div
@@ -149,6 +149,6 @@ function Uploader() {
       </Button>
     </div>
   );
-}
+};
 
 export default Uploader;
