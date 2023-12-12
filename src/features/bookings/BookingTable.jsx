@@ -1,5 +1,5 @@
 import Table from "../../ui/Table";
-import { useBookings } from "./useBooking";
+import { useBookings } from "./useBookings";
 import BookingRow from "./BookingRow";
 import Menus from "../../ui/Menus";
 import Empty from "../../ui/Empty";
