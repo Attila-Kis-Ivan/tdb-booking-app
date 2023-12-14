@@ -29,7 +29,7 @@ const SignupForm = () => {
           type="text"
           id="fullName"
           disabled={isLoading}
-          {...register("fullname", {
+          {...register("fullName", {
             required: "This field is required",
           })}
         />
