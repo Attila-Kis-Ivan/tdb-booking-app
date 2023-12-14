@@ -3,14 +3,23 @@ import Button from "../../ui/Button-Styles";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { signup } from "../../services/apiAuth";
+import { useSignup } from "./useSignup";
 
 // Email regex: /\S+@\S+\.\S+/
 
 const SignupForm = () => {
-  const { register, formState, getValues, handleSubmit } = useForm();
+  const { signup, isLoading } = useSignup();
+  const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = ({ fullName, email, password }) => {
+    signup(
+      { fullName, email, password },
+      {
+        onSettled: () => reset(),
+      }
+    );
   };
 
   return (
@@ -19,6 +28,7 @@ const SignupForm = () => {
         <Input
           type="text"
           id="fullName"
+          disabled={isLoading}
           {...register("fullname", {
             required: "This field is required",
           })}
@@ -29,6 +39,7 @@ const SignupForm = () => {
         <Input
           type="email"
           id="email"
+          disabled={isLoading}
           {...register("email", {
             required: "This field is required",
             pattern: {
@@ -40,17 +51,18 @@ const SignupForm = () => {
       </FormRow>
 
       <FormRow
-        label="Password (min 13 characters)"
+        label="Password (min 8 characters)"
         error={errors?.password?.message}
       >
         <Input
           type="password"
           id="password"
+          disabled={isLoading}
           {...register("password", {
             required: "This field is required",
             minLength: {
-              value: 13,
-              message: "Password needs a minimum of 13 characters ",
+              value: 8,
+              message: "Password needs a minimum of 8 characters ",
             },
           })}
         />
@@ -60,6 +72,7 @@ const SignupForm = () => {
         <Input
           type="password"
           id="passwordConfirm"
+          disabled={isLoading}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
@@ -70,10 +83,10 @@ const SignupForm = () => {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset">
+        <Button variation="secondary" type="reset" disabled={isLoading}>
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button disabled={isLoading}>Create new user</Button>
       </FormRow>
     </Form>
   );
