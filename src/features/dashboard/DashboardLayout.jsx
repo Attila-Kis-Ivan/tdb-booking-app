@@ -5,6 +5,7 @@ import Stats from "./Stats";
 import { useCabins } from "../cabins/useCabins";
 import { StyledDashboardLayout } from "./DashboardLayout-styles";
 import SalesChart from "./SalesChart";
+import DurationChart from "./DurationChart";
 
 function DashboardLayout() {
   const { bookings, isLoading: isLoading1 } = useRecentBookings();
@@ -21,6 +22,7 @@ function DashboardLayout() {
         numDays={numDays}
         cabinCount={cabins.length}
       />
+      <DurationChart confirmedStayes={confirmedStays} />
       <SalesChart bookings={bookings} numDays={numDays} />
     </StyledDashboardLayout>
   );
