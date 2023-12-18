@@ -8,7 +8,7 @@ const Sidebar = () => {
     <StyledSidebar>
       <Logo />
       <MainNav />
-      <Uploader />
+      {/* <Uploader /> */}
     </StyledSidebar>
   );
 };
