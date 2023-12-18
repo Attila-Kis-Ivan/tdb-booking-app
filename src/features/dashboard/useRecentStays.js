@@ -16,9 +16,9 @@ export const useRecentStays = () => {
     queryKey: ["stays", `last-${numDays}`],
   });
 
-  const confirmedStays = stays?.filter(
+  const confirmedStayes = stays?.filter(
     (stay) => stay.status === "chacked-in" || "checked-out"
   );
 
-  return { isLoading, stays, confirmedStays, numDays };
+  return { isLoading, stays, confirmedStayes, numDays };
 };

@@ -138,10 +138,10 @@ const prepareData = (startData, stays) => {
   return data;
 };
 
-const DurationChart = ({ confirmedStays }) => {
+const DurationChart = ({ confirmedStayes }) => {
   const { isDarkMode } = useDarkMode();
   const startData = isDarkMode ? startDataDark : startDataLight;
-  // const data = prepareData(startData, confirmedStays);
+  const data = prepareData(startData, confirmedStayes);
 
   return (
     <ChartBox>
@@ -149,7 +149,7 @@ const DurationChart = ({ confirmedStays }) => {
       <ResponsiveContainer width="100%" height={240}>
         <PieChart>
           <Pie
-            data={startDataLight}
+            data={data}
             nameKey="duration"
             dataKey="value"
             innerRadius={85}
@@ -158,7 +158,7 @@ const DurationChart = ({ confirmedStays }) => {
             cy="50%"
             paddingAngle={3}
           >
-            {startDataLight.map((entry) => (
+            {data.map((entry) => (
               <Cell
                 fill={entry.color}
                 stroke={entry.color}
